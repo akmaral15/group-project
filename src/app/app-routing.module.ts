@@ -3,13 +3,23 @@ import { Routes, RouterModule } from '@angular/router';
 import {FoodItemComponent} from './food-item/food-item.component';
 import {FoodListComponent} from './food-list/food-list.component';
 import {CategoryComponent} from "./category/category.component";
+import { SigninComponent } from './signin/signin.component';
+import { SignupComponent } from './signup/signup.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
+
+import { AuthGuard } from "./auth.guard";
 
 const routes: Routes = [
   { path: 'foods', component: FoodListComponent},
-  // { path: '', component: CategoryComponent},
+  
   { path: '', component: FoodListComponent},
   { path: 'category/:id/food-id/:id', component: FoodItemComponent},
   { path: 'category/:id', component: CategoryComponent},
+  { path: '', redirectTo: '/log-in', pathMatch: 'full' },
+  { path: 'log-in', component: SigninComponent },
+  { path: 'sign-up', component: SignupComponent },
+  { path: 'user-profile/:id', component: UserProfileComponent, canActivate: [AuthGuard] }
+  
 ];
 
 @NgModule({
