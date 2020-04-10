@@ -1,25 +1,42 @@
 .row {
-    background: #ffffff;
-    border-radius: 15px;
+    
     margin: 1rem 1rem 1rem 1rem;
     padding: 0px 30px 25px 3px;
-    text-align: center;
-    width: 400px;
-    display: table;
-    cursor: pointer;
+    
+    display: flex;
+    
+    justify-content: space-between;
   }
  
-
+  #detail{
+    background: #ffffff;
+    border-radius: 15px;
+    text-align: center;
+    cursor: pointer;
+  }
   .column {
-    flex: 60%;
     margin: 1rem 1rem 1rem 1rem;
     padding: 0px 30px 25px 3px;
     
   }
-
+  #admin{
+    border: 0.5px solid black;
+    background: rgb(242, 222, 184);
+    border-radius: 15px;
+    padding: 10px 10px;
+  }
+  #admin div {
+    display: flex;
+    justify-content: space-between;
+  }
+  input{
+    width: 350px;
+  }
+  input#description, input#ingredients{
+    height: 100px;
+  }
   
   img {
-    padding: 50px 60px;
     margin: 50px 60px;
   }
   .akw{
