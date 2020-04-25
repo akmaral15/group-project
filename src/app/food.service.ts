@@ -12,23 +12,37 @@ export class FoodService {
   [x:string]: any;
 
   constructor(private http: HttpClient,) { }
-  private foodsUrl = 'api/foods';  // URL to web api
+
+  private _url: string = "http://localhost:8000/api/foods/"
+
+  private headers = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json'
+    })
+  }
+  
   getFood(id: number): Observable<Food> {
     return of(FOODS.find(food => food.id === id));
   }
 
   getFoods (): Observable<Food> {
-    return this.http.get<any>(this.foodsUrl)
-      .pipe(
-        tap(_ => this.log('fetched foods')),
-        catchError(this.handleError<any>('getFoods', []))
-      );
+    return this.http.get<Food>(this._url)
   }
   getFoodsByCategoryId(id: number): Observable<any> {
-    return of(FOODS.filter(food => food.category_id === id));
+    return this.http.get<any>(this._url + 'category/' + id + '/')
+  }
+
+  editFood(food): Observable<any> {
+    return this.http.put<any>(this._url + food.id + '/', { ...food }, this.headers)
+  }
+
+  deleteFood(id): Observable<any> {
+    return this.http.delete<any>(this._url + id + '/')
   }
   
- 
+  addFood(food): Observable<any> {
+    return this.http.post<any>(this._url, food, this.headers)
+  }
 
 private handleError<T> (operation = 'operation', result?: T) {
   return (error: any): Observable<T> => {

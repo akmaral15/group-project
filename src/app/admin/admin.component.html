@@ -1,0 +1,27 @@
+<div class="admin">
+    <div class="ai">
+        <div class="ai_label">Name</div>
+        <input type="text" name="name" [(ngModel)]="adminModel.name">
+    </div>
+    <div class="ai">
+        <div class="ai_label">Image</div>
+        <input type="text" name="image" [(ngModel)]="adminModel.image">
+    </div>
+    <div class="ai">
+        <div class="ai_label">Description</div>
+        <textarea cols="30" rows="10" name="description" [(ngModel)]="adminModel.description"></textarea>
+    </div>
+    <div class="ai">
+        <div class="ai_label">Ingredients</div>
+        <textarea cols="30" rows="10" name="ingredients" [(ngModel)]="adminModel.ingredients"></textarea>
+    </div>
+    <div class="ai">
+        <div class="ai_label">Price</div>
+        <input type="text" name="price" [(ngModel)]="adminModel.price">
+    </div>
+    <div class="ai">
+        <div class="ai_label">Category</div>
+        <input type="text" name="category" [(ngModel)]="adminModel.category">
+    </div>
+    <div class="button"><button (click)="onAdd()">Add</button></div>
+</div>

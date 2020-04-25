@@ -8,11 +8,13 @@ import { SignupComponent } from './signup/signup.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 
 import { AuthGuard } from "./auth.guard";
+import { AdminComponent } from './admin/admin.component';
 
 const routes: Routes = [
   { path: 'foods', component: FoodListComponent},
   
   { path: '', component: FoodListComponent},
+  { path: 'admin', component: AdminComponent},
   { path: 'category/:id/food-id/:id', component: FoodItemComponent},
   { path: 'category/:id', component: CategoryComponent},
   { path: '', redirectTo: '/log-in', pathMatch: 'full' },

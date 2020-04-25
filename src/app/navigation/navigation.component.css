@@ -1,26 +1,21 @@
 .sidenav {
-  display: flex;
-    height: 100%;
-    z-index: 1;
-    top: 0;
-    left: 0;
+    display: grid;
     background-color:wheat; 
-    overflow-x: hidden;
-    padding-top: 15px;
-    text-align: center;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 1rem;
+    padding: 1rem;
   }
   
   .sidenav a {
-    display:flex;
-    Justify-content: center;
+    display: grid;
+    justify-content: center;
+    padding: 10px 0;
+    border-radius: 5px;
     background: #ffffff;
-    border-radius: 6px;
-    padding: 20px 20px 10px 20px;
     text-decoration:none;
     color:black;
-    font-size: 30px;
-    margin: 1rem 0rem 5rem 4rem;
-    
+
+    font-size: 20px;    
   }
   
   .sidenav a:hover {

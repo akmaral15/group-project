@@ -19,6 +19,7 @@ import { SigninComponent } from './signin/signin.component';
 import { SignupComponent } from './signup/signup.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { AuthInterceptor } from './authconfig.interceptor';
+import { AdminComponent } from './admin/admin.component';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import { AuthInterceptor } from './authconfig.interceptor';
     SigninComponent,
     SignupComponent,
     UserProfileComponent,
+    AdminComponent,
     
   
    //

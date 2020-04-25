@@ -18,7 +18,7 @@ export class SigninComponent implements OnInit {
     public router: Router
   ) {
     this.signinForm = this.fb.group({
-      email: [''],
+      username: [''],
       password: ['']
     })
   }
@@ -26,6 +26,7 @@ export class SigninComponent implements OnInit {
   ngOnInit() { }
 
   loginUser() {
+    console.log(this.signinForm.value)
     this.authService.signIn(this.signinForm.value)
   }
 }

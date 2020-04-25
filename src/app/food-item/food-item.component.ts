@@ -1,10 +1,10 @@
 
 import {Component, OnChanges, OnInit, SimpleChanges,Input} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {map} from 'rxjs/operators';
 import { Location } from '@angular/common';
 import {FOODS} from '../mock-foods';
 import {Food} from '../foods'
+import { FoodService } from '../food.service';
 @Component({
   selector: 'app-food-item',
   templateUrl: './food-item.component.html',
@@ -13,7 +13,8 @@ import {Food} from '../foods'
 export class FoodItemComponent implements OnInit {
   food: any;
   constructor(public activatedRoute: ActivatedRoute,
-    private location: Location) { }
+    private location: Location,
+    private foodService: FoodService) { }
 
   ngOnInit(): void {
     this.food = window.history.state;
@@ -37,6 +38,7 @@ export class FoodItemComponent implements OnInit {
     element.price = price;
     element.description = desc;
     element.ingredients = ing;
+    this.foodService.editFood(element).subscribe()
   }
   cancel(id){
     let element: Food;
@@ -48,6 +50,10 @@ export class FoodItemComponent implements OnInit {
     }
     (<HTMLInputElement>document.getElementById("name")).value = element.name;
     
+  }
+
+  delete(id) {
+    this.foodService.deleteFood(id).subscribe()
   }
 
 }
